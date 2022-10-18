@@ -1,21 +1,32 @@
 import React, { useEffect } from "react";
-// import { getMessaging, onMessage } from "firebase/messaging";
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+import logo from "./logo.svg";
+import "./App.css";
+import { messaging } from "./init-fcm";
 
-// const firebaseApp = initializeApp({
-//   apiKey: "AIzaSyD8bAXN6uWXdBvWnGMYemYnEtU8gJmLdC4",
-//   authDomain: "fcm-push-7bced.firebaseapp.com",
-//   projectId: "fcm-push-7bced",
-//   storageBucket: "fcm-push-7bced.appspot.com",
-//   messagingSenderId: "211185700909",
-//   appId: "1:211185700909:web:a6ba1715d74041976068a4",
-// });
+function askPermission() {
+  // Get Instance ID token. Initially this makes a network call, once retrieved
+  // subsequent calls to getToken will return from cache.
+  messaging
+    .getToken()
+    .then((currentToken) => {
+      if (currentToken) {
+        console.log(currentToken);
+      } else {
+        // Show permission request.
+        console.log(
+          "No Instance ID token available. Request permission to generate one."
+        );
+        // Show permission UI
+      }
+    })
+    .catch((err) => {
+      console.log("An error occurred while retrieving token.-->", err);
+    });
+}
 
-// // const messaging = getMessaging(firebaseApp);
-// // onMessage(messaging, (payload) => {
-// //   console.log("Message received. ", payload);
-// //   // ...
-// // });
+messaging.onMessage((payload) => {
+  console.log("onMessage-->" + payload);
+});
 
 function App() {
   useEffect(() => {
@@ -25,7 +36,11 @@ function App() {
       }
     });
   }, []);
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <button onClick={askPermission}>CLICK me</button>
+    </div>
+  );
 }
 
 export default App;

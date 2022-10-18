@@ -5,7 +5,7 @@
 // export const messaging = getMessaging();
 // getToken(messaging, {
 //   vapidKey:
-//     "BFaHfNo6Cp93RnX9fWKwb5o0sOgIWfo8uvwWZZKddy08fY814uf3Pllr0eMDQShBKIETkUoXRMvSFTNAu-BqyTM",
+// "BFaHfNo6Cp93RnX9fWKwb5o0sOgIWfo8uvwWZZKddy08fY814uf3Pllr0eMDQShBKIETkUoXRMvSFTNAu-BqyTM",
 // })
 //   .then((currentToken) => {
 //     if (currentToken) {
