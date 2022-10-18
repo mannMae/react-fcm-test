@@ -25,7 +25,8 @@ function askPermission() {
 }
 
 messaging.onMessage((payload) => {
-  console.log("onMessage-->" + payload);
+  console.log("onMessage-->" + payload.notification.title);
+  console.log("onMessage-->" + payload.notification.body);
 });
 
 function App() {
