@@ -11,11 +11,11 @@ const firebaseApp = initializeApp({
   appId: "1:211185700909:web:a6ba1715d74041976068a4",
 });
 
-const messaging = getMessaging(firebaseApp);
-onMessage(messaging, (payload) => {
-  console.log("Message received. ", payload);
-  // ...
-});
+// const messaging = getMessaging(firebaseApp);
+// onMessage(messaging, (payload) => {
+//   console.log("Message received. ", payload);
+//   // ...
+// });
 
 function App() {
   useEffect(() => {
